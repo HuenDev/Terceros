@@ -42,10 +42,10 @@ class Helpers
     }
 
 
-    // Agregar un nuevo botón para resetear el GridView sin recargar toda la página
+    //! Agregar un nuevo botón para resetear el GridView sin recargar toda la página
     public static function crearBotonResetGrid($gridId = '#grid-view')
     {
-        $botonReset = Html::button('Resetear Grid', [
+        $botonReset = Html::button('Resetear Filtros de búsqueda', [
             'class' => 'btn btn-info text-white',
             'id' => 'reset-grid',
         ]);

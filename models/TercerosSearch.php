@@ -2,7 +2,6 @@
 //Modelo que agrega capacidades de busqueda y filtros
 namespace app\models;
 
-use yii\base\Model; //Clase de Yii para interactuar con los modelos
 use yii\data\ActiveDataProvider; //Clase de Yii que Permite manejar la paginación y filtrado de datos.
 use app\models\Terceros; //Llamar a la clase del modelo Terceros
 class TercerosSearch extends Terceros

@@ -1,14 +1,11 @@
 <?php
 
 use yii\widgets\Pjax;
-use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\bootstrap5\Modal;
 use app\components\Helpers;
 
 /** @var yii\web\View $this */
 ?>
-
 
 <header class="border-bottom border-dark-subtle border-1 mb-4 p-2">
     <h1>
@@ -28,10 +25,11 @@ $this->registerCss('.grid-view th a{text-decoration: none;}')
     'id' => 'grid-view',
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
+
     'layout' =>
     '
-    <div class="row d-flex">
-            <div class="col d-flex justify-content-end mb-2">
+    <div class="row d-flex border border-dark">
+            <div class="col d-flex justify-content-end mb-2 bg-dark text-light p-3">
                 {summary}
             </div>
         <div class="d-flex justify-content-end gap-2 mb-2">
@@ -40,9 +38,12 @@ $this->registerCss('.grid-view th a{text-decoration: none;}')
         Helpers::crearBotonResetGrid() .
         '
         </div>
+        <div class="container-sm overflow-auto">
+        {items}
+        </div>
     </div>
-    {items}
     ',
+
     'columns' => [
         'tipo_documento',
         'razon_social',
