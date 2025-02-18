@@ -15,20 +15,4 @@ class TercerosForm extends Model
     public $correo;
     public $direccion;
 
-
-
-    //Método para asignar reglas de validación a los atributos (Son opcionales pero es importante tenerlos para que haya una correcta validación)
-    public function rules()
-    {
-        return
-            [
-                [["id", "tipo_documento", "razon_social", "telefono", "correo", "direccion"], "required"],
-                ["id", "number"],
-                ["tipo_documento", "number"],
-                ["razon_social", "string"],
-                ["telefono", "number"],
-                ["correo", "email"],
-                ["direccion", "string"]
-            ];
-    }
 }

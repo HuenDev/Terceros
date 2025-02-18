@@ -7,6 +7,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'es-ES',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -51,12 +52,6 @@ $config = [
             ],
         ],
 
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [],
-        // ],
-
         'db' => $db,
         /*
         'urlManager' => [
@@ -68,7 +63,7 @@ $config = [
         */
     ],
     'params' => $params,
-    // 'defaultRoute' => 'terceros/index',
+    'defaultRoute' => 'terceros/index',
 ];
 
 if (YII_ENV_DEV)

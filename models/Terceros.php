@@ -17,12 +17,14 @@ class Terceros extends ActiveRecord
     public function rules()
     {
         return [
-            [['razon_social', 'tipo_documento', 'telefono', 'correo', 'direccion'], 'required'],
-            [['razon_social', 'correo'], 'string', 'max' => 255],
-            [['tipo_documento'], 'default', 'value' => ''],
+            [['razon_social', 'tipo_documento', 'telefono', 'correo', 'direccion', 'saldo'], 'required'],
+            [['tipo_documento'], 'string', 'max' => 3],
+            [['razon_social'], 'string', 'max' => 255],
             [['telefono'], 'number'],
             [['correo'], 'email'],
             [['direccion'], 'string', 'max' => 1000],
+            [['saldo'], 'number'],
+
         ];
     }
 }

@@ -11,7 +11,7 @@ class TercerosSearch extends Terceros
     public function rules()
     {
         return [
-            [['id', 'tipo_documento', 'razon_social', 'telefono', 'correo', 'direccion', 'saldo'], 'safe'], 
+            [['tipo_documento', 'razon_social', 'telefono', 'correo', 'direccion', 'saldo'], 'safe'], 
         ];
     }
 
