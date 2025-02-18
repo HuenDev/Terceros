@@ -17,7 +17,7 @@ class Helpers
             'data-bs-target' => '#' . $id
         ]);
 
-        // Capturar salida del modal
+        //! Capturar salida del modal
         ob_start();
         Modal::begin([
             'id' => $id,
@@ -30,7 +30,7 @@ class Helpers
         Modal::end();
         $modal = ob_get_clean();
 
-        // Script para cargar AJAX cuando el modal se muestra
+        //! Cargar AJAX cuando el modal se muestra
         $script = new JsExpression("
             $('#$id').on('shown.bs.modal', function () {
                 $('#modal-content').load('" . \yii\helpers\Url::to($url) . "');
@@ -50,7 +50,7 @@ class Helpers
             'id' => 'reset-grid',
         ]);
 
-        // Script para hacer AJAX y resetear el GridView
+        //! Script para hacer AJAX y resetear el GridView
         $script = new JsExpression("
                 $('#reset-grid').click(function() {
                     $.pjax.reload({

@@ -19,7 +19,11 @@ $this->registerCss('.grid-view th a{text-decoration: none;}')
 ?>
 
 
-<?php Pjax::begin(['id' => 'pjax-grid-view', 'enablePushState' => false]);
+<?php Pjax::begin([
+    'id' => 'pjax-grid-view', 
+    'enablePushState' => false,
+    'options' => ['data-pjax'=> true]
+]);
 ?>
 <?= GridView::widget([
     'id' => 'grid-view',
