@@ -1,5 +1,7 @@
 <?php
 
+//!Archivo que define el funcionamiento de la aplicación (dice como manejar la web, configurar la DB y definir rutas)
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 

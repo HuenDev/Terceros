@@ -1,5 +1,6 @@
 <?php
 
+//! Archivo que contiene las configuraciones para ejecutar comandos en la terminal (automatizar tareas)
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 

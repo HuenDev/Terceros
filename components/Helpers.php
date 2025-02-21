@@ -1,4 +1,5 @@
 <?php
+//Creación de funciones reutilizables mediante métodos estaticos 
 
 namespace app\components;
 
@@ -18,7 +19,7 @@ class Helpers
         ]);
 
         //! Capturar salida del modal
-        ob_start();
+        ob_start(); //Permite que el modal se almacene en una memoria temporal hasta que se mande a llamar
         Modal::begin([
             'id' => $id,
             'title' => 'Crear Nuevo Registro',
@@ -38,7 +39,7 @@ class Helpers
         ");
         \Yii::$app->view->registerJs($script);
 
-        return $boton . $modal;
+        return $boton . $modal ;
     }
 
 
@@ -50,7 +51,7 @@ class Helpers
             'id' => 'reset-grid',
         ]);
 
-        //! Script para hacer AJAX y resetear el GridView
+        //! Script para AJAX y resetear el GridView
         $script = new JsExpression("
                 $('#reset-grid').click(function() {
                     $.pjax.reload({

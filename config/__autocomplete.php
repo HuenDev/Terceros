@@ -9,8 +9,10 @@
  * // @property of \vendor\package\Rollbar goes here
  * class __Rollbar {
  * }
- * ```
+ * ``
  */
+
+ //! Archivo que lo crea VSCode y sirve para mejorar el autocompletado
 class Yii {
     /**
      * @var \yii\web\Application|\yii\console\Application|__Application
