@@ -4,6 +4,8 @@ namespace app\models;
 
 use yii\data\ActiveDataProvider; //Clase de Yii que Permite manejar la paginación y filtrado de datos.
 use app\models\Terceros; //Llamar a la clase del modelo Terceros
+use app\components\SaldosFiltroTerceros; //Componente para filtros de saldo
+
 class TercerosSearch extends Terceros
 {
     //Método que establece las reglas de validación para el filtrado en el gridview
@@ -25,33 +27,16 @@ class TercerosSearch extends Terceros
 
         ]);
 
+        // if (!empty($parametros))
+        // die(var_dump($parametros));
 
         if (!$this->load($parametros) || !$this->validate()) //Si no se pueden cargar los parámetros O si los datos no son válidos, retorna los registros sin filtrar
         {
             return $dataProvider;
         }
 
-
-        //Validaciones de busqueda para saldo
-        if (!empty($this->saldo) && preg_match('/^(<=|>=|<|>|=|!=)(\d+)$/', $this->saldo, $coincidencia))
-        {
-            $operador = $coincidencia[1];
-            $valor = $coincidencia[2];
-            $query->andWhere([$operador, 'saldo', $valor]);
-        }
-
-        elseif (!empty($this->saldo) && preg_match('/^(\d+)-(\d+)$/', $this->saldo, $coincidencia))
-        {
-            $valor1 = $coincidencia[1];
-            $valor2 = $coincidencia[2];
-            $query->andWhere(['between', 'saldo', $valor1, $valor2]);
-        }
-        else
-        {
-            // Si no hay operador especial, buscar coincidencia normal
-            $query->andFilterWhere(['like', 'saldo', $this->saldo]);
-        }
-
+        //Llamada del componente reutilizable con los condicionales que debe cumplir el campo de saldo
+        $query = SaldosFiltroTerceros::validadorSaldoFiltro($query, $this->saldo);
 
         //Cración de filtros para los demás campos
         $query->andFilterWhere(['id' => $this->id])
